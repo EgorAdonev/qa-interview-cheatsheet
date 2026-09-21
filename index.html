@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Интерактивная шпаргалка для собеседования Java Automation QA / POS / Desktop">
+<title>QA Interview Cheat Sheet — Java / POS / Desktop</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="topin">
+    <div class="brand">QA <b>Interview</b> Cheat Sheet</div>
+    <div class="search"><input id="search" placeholder="Поиск: HashMap, Rest-Assured, Kafka, DNS, smoke…"></div>
+    <button class="btn" id="focusBtn" title="Показывать только самое важное">⚡ 15 минут</button>
+    <button class="btn" id="answersBtn">Скрыть ответы</button>
+    <button class="btn primary" id="randomBtn">🎤 Вопрос</button>
+  </div>
+</header>
+
+<div class="layout">
+<aside class="side">
+  <h4>Разделы</h4>
+  <div class="nav" id="nav"></div>
+  <div class="box">
+    <div style="display:flex;justify-content:space-between;gap:8px"><b>Прогресс</b><span class="count" id="progressText">0 / 0</span></div>
+    <div class="meter" style="margin-top:8px"><i id="progressBar"></i></div>
+    <div class="count" style="margin-top:8px">Отмечай карточки «знаю». Прогресс хранится только в этом браузере.</div>
+  </div>
+  <div class="box">
+    <b>Легенда</b>
+    <div class="count" style="margin-top:6px">★ Must know — повторить в первую очередь<br>PDF — вопрос из Java-шаблона 16.10.2023<br>Deep — углубленный уровень</div>
+  </div>
+</aside>
+
+<main>
+<section class="hero" id="overview">
+  <div class="eyebrow">Java Automation QA • POS / кассовое ПО • Desktop</div>
+  <h1>Интерактивная шпаргалка для собеседования</h1>
+  <p>Собрана под вакансию инженера по автотестированию кассового ПО: Java, desktop GUI, API, ручное тестирование, Linux/Windows, сети, Jira/Confluence — плюс исходный стек Selenium, JUnit, Git, Kafka, ML и LLM.</p>
+  <div class="chips">
+    <span class="chip">поиск по 100+ вопросам</span><span class="chip">краткие интервью-ответы</span><span class="chip">3 Java-задачи из шаблона</span><span class="chip">mock interview</span><span class="chip">localStorage progress</span><span class="chip">без авторизации</span>
+  </div>
+  <div class="stackmap" aria-label="Карта стека">
+    <div class="node">☕ Java<small>Core / OOP / Streams</small></div>
+    <div class="node">🧪 JUnit<small>TestNG / Maven / CI</small></div>
+    <div class="node">🖥 Desktop<small>POS / GUI automation</small></div>
+    <div class="node">🌐 API<small>Postman / Rest-Assured</small></div>
+    <div class="node">⇄ Kafka<small>events / consumers</small></div>
+    <div class="node">🐧 Systems<small>Linux / Windows / Network</small></div>
+    <div class="node">✨ AI<small>ML / LLM concepts</small></div>
+  </div>
+</section>
+
+<section class="section" id="priority">
+  <div class="sectionhead"><div><h2>Что учить в первую очередь</h2><p>Приоритет относительно описания вакансии, а не общий рейтинг технологий.</p></div></div>
+  <div class="priority">
+    <div><b>1</b><span><strong>Java Core + OOP + JUnit</strong> — уверенно объяснять и читать код.</span></div>
+    <div><b>2</b><span><strong>Manual QA + test design + POS scenarios</strong> — smoke/regression/integration/acceptance, баг-репорты, приемка релизов.</span></div>
+    <div><b>3</b><span><strong>Desktop + troubleshooting</strong> — Windows/Linux, драйверы, периферия, логи, нестандартные конфигурации.</span></div>
+    <div><b>4</b><span><strong>API</strong> — HTTP, Postman, Rest-Assured, auth, negative cases.</span></div>
+    <div><b>5</b><span><strong>Сети + SQL + Git + CI/Maven/Allure</strong> — практическая инженерная база.</span></div>
+    <div><b>6</b><span><strong>Kafka / ML / LLM</strong> — понимать концептуально и уметь связать с тестированием.</span></div>
+  </div>
+</section>
+
+<section class="section" id="posmap">
+  <div class="sectionhead"><div><h2>Как мыслить про кассовый стенд</h2><p>Не только UI: ищи границы между приложением, сервисами, сетью и физическим оборудованием.</p></div></div>
+  <div class="card must">
+    <div class="meta"><span class="tag must">★ MUST KNOW</span></div>
+    <h3>End-to-end цепочка продажи</h3>
+    <pre class="code">Сканер / ввод товара
+        ↓
+Desktop POS → локальная конфигурация / кэш
+        ↓
+API / backend ─────→ БД
+        ↓
+Платежный терминал / эквайринг
+        ↓
+Принтер чека / периферия
+        ↓
+События / Kafka / мониторинг
+
+На каждом переходе проверяй:
+данные • таймаут • retry • дубль • offline • recovery • логи</pre>
+    <div class="callout warn">Типовой сильный ответ на troubleshooting-вопрос: сначала зафиксировать симптом и окружение, затем локализовать слой, воспроизвести минимальный кейс, собрать доказательства и только после этого формулировать гипотезу о причине.</div>
+  </div>
+</section>
+
+<div id="sections"></div>
+
+<section class="section" id="practice">
+  <div class="sectionhead"><div><h2>Java mini-practice из шаблона</h2><p>Формулировки и варианты взяты из загруженного Java-шаблона. Разбор решений — учебное пояснение, добавленное для подготовки.</p></div></div>
+  <div id="practiceList"></div>
+</section>
+
+<section class="section" id="interview">
+  <div class="sectionhead"><div><h2>Mock interview</h2><p>Отвечай вслух 60–90 секунд. Затем сравни с кратким ориентиром.</p></div></div>
+  <div class="interview">
+    <div class="qaBox">
+      <div class="topic" id="qTopic">—</div>
+      <div class="q" id="qText">Нажми «Следующий вопрос»</div>
+      <div class="a" id="qAnswer"></div>
+      <div style="display:flex;gap:8px;margin-top:18px;flex-wrap:wrap">
+        <button class="btn primary" id="nextQuestion">Следующий вопрос</button>
+        <button class="btn" id="showAnswer">Показать ответ</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Схема хорошего ответа</h3>
+      <ol>
+        <li><b>Определение</b> — одна фраза.</li>
+        <li><b>Как работает</b> — 2–3 ключевых механизма.</li>
+        <li><b>Практика</b> — пример из автотестов/кассового ПО.</li>
+        <li><b>Ограничение</b> — типовая ошибка или trade-off.</li>
+      </ol>
+      <div class="callout">Если не знаешь точный API/команду, проговори диагностический подход. Для такой вакансии инженерное мышление часто важнее заученного синтаксиса.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="source-note">
+  <div class="sectionhead"><div><h2>О происхождении материала</h2></div></div>
+  <div class="card">
+    <p><b>PDF-вопросы:</b> в загруженном «Java Шаблон» перечислены вопросы интервью по теории тестирования, OOP, JUnit/TestNG, API/Rest-Assured, Selenium/Selenide/Selenoid, Allure, CI/CD, Maven, SQL и Java Core, а также три мини-задачи.</p>
+    <p><b>Важно:</b> сам шаблон в основном содержит вопросы, а не официальный набор ответов. Поэтому карточки с меткой PDF сохраняют смысл вопроса из источника, а ответы на сайте — учебные пояснения для подготовки.</p>
+  </div>
+</section>
+
+<div class="footer">QA Interview Cheat Sheet • static HTML/CSS/JS • данные прогресса не отправляются на сервер</div>
+</main>
+</div>
+
+<script src="data-core.js"></script>
+<script src="data-extra.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

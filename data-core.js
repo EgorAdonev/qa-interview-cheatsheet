@@ -1,6 +1,6 @@
 window.CARDS=[
-{section:"Теория тестирования",q:"Какие цели тестирования вы преследуете?",a:"Цель — дать информацию о качестве и рисках продукта: найти дефекты до пользователя, проверить соответствие требованиям, снизить риск регрессии и дать команде основание для решения о релизе. На интервью полезно связать ответ с реальным проектом.",must:1,pdf:1},
-{section:"Теория тестирования",q:"Какие виды тестирования знаете и какие применяли?",a:"Можно классифицировать по уровню (unit, integration, system, acceptance), цели (functional/non-functional), моменту (smoke, regression, retest) и способу (manual/automation). Для вакансии POS отдельно упомяните smoke, интеграционное, приемочное и регрессионное тестирование кассового стенда.",must:1,pdf:1},
+{section:"Теория тестирования",q:"Какие цели тестирования вы преследуете?",a:"Цель — дать информацию о качестве и рисках продукта: найти дефекты до пользователя, проверить соответствие требованиям, снизить риск регрессии и дать команде основание для решения о релизе. Полезно связать ответ с реальным проектом.",must:1,pdf:1},
+{section:"Теория тестирования",q:"Какие виды тестирования знаете и какие применяли?",a:"Можно классифицировать по уровню (unit, integration, system, acceptance), цели (functional/non-functional), моменту (smoke, regression, retest) и способу (manual/automation). Отдельно полезно различать smoke, интеграционное, приемочное и регрессионное тестирование кассового стенда.",must:1,pdf:1},
 {section:"Теория тестирования",q:"Какие техники тест-дизайна знаете?",a:"Эквивалентное разбиение, анализ граничных значений, таблицы решений, переходы состояний, pairwise, use-case testing, error guessing. Хороший ответ включает 1–2 примера: например сумма чека 0/1/максимум и комбинации тип оплаты × скидка × возврат.",must:1,pdf:1},
 {section:"Теория тестирования",q:"Назовите принципы тестирования.",a:"Классические идеи: тестирование показывает наличие дефектов, исчерпывающее тестирование невозможно, раннее тестирование выгоднее, дефекты кластеризуются, тесты устаревают, подход зависит от контекста, отсутствие найденных дефектов не доказывает пригодность продукта.",pdf:1},
 {section:"Теория тестирования",q:"Опишите жизненный цикл дефекта.",a:"Обычно New/Open → Assigned/In progress → Fixed/Resolved → Retest → Closed. Возможны Reopened, Rejected/Not a bug, Duplicate, Deferred. Реальный workflow зависит от Jira-проекта.",must:1,pdf:1},
@@ -23,7 +23,7 @@ window.CARDS=[
 {section:"JUnit / TestNG",q:"Как запускать тесты по профилям/группам?",a:"В JUnit обычно применяют @Tag и фильтрацию в Maven/Gradle; в TestNG — groups и suite XML. В CI это связывают с параметрами pipeline: smoke на каждый PR, regression по расписанию.",pdf:1},
 {section:"JUnit / TestNG",q:"Что проверяют assertions и чем assertAll полезен?",a:"Assertions сравнивают фактическое и ожидаемое состояние. assertAll выполняет группу проверок и сообщает все накопленные расхождения, вместо остановки на первой.",must:1},
 
-{section:"API / Rest-Assured",q:"Какие инструменты использовали для ручного тестирования API?",a:"Для этой вакансии ожидаемая база — Postman/аналог, curl, Swagger/OpenAPI. В ответе назовите, как проверяли методы, headers, auth, body, status, schema и негативные сценарии.",must:1,pdf:1},
+{section:"API / Rest-Assured",q:"Какие инструменты использовали для ручного тестирования API?",a:"Практическая база — Postman/аналог, curl, Swagger/OpenAPI. В ответе назовите, как проверяли методы, headers, auth, body, status, schema и негативные сценарии.",must:1,pdf:1},
 {section:"API / Rest-Assured",q:"Из чего состоит HTTP-запрос?",a:"Метод + URL (scheme/host/path/query), headers, опционально body. Важны Content-Type/Accept, Authorization, cookies. Ответ содержит status code, headers и body.",must:1,pdf:1},
 {section:"API / Rest-Assured",q:"Какие HTTP-методы нужно знать?",a:"GET — чтение; POST — создание/команда; PUT — полная замена; PATCH — частичное изменение; DELETE — удаление. Семантика зависит от API-контракта; GET/PUT/DELETE обычно рассматривают как идемпотентные.",must:1,pdf:1},
 {section:"API / Rest-Assured",q:"Как выглядит given / when / then в Rest-Assured?",a:"given() — подготовка запроса (base URI, headers, auth, body); when() — отправка действия, например get/post; then() — проверки status/body/headers. Пример: given().contentType(JSON).body(dto).when().post('/sale').then().statusCode(201).",must:1,pdf:1},
@@ -49,7 +49,7 @@ window.CARDS=[
 {section:"SQL",q:"Какие виды БД знаете?",a:"Реляционные (PostgreSQL/MySQL/MSSQL/SQLite), key-value, document, column-family, graph, time-series. Для QA важно понимать модель данных конкретного продукта и уметь проверить состояние до/после операции.",pdf:1},
 {section:"SQL",q:"Приведите простой SQL-запрос для проверки продажи.",a:"Например: SELECT id,total,status FROM sales WHERE receipt_no='12345' ORDER BY created_at DESC; Затем сверить сумму/статус с UI или API.",must:1,pdf:1},
 {section:"SQL",q:"Для чего LIKE, ORDER BY, AND, OR, AS?",a:"LIKE — pattern matching; ORDER BY — сортировка; AND/OR — логические условия; AS — alias для колонки/таблицы. Важно помнить о приоритете AND перед OR и ставить скобки для ясности.",pdf:1},
-{section:"SQL",q:"Какие JOIN знаете?",a:"INNER JOIN — совпавшие строки; LEFT/RIGHT — все строки одной стороны + совпадения; FULL — обе стороны; CROSS — декартово произведение. Для интервью достаточно уверенно объяснить INNER и LEFT на примере sale ↔ payment.",must:1,pdf:1},
+{section:"SQL",q:"Какие JOIN знаете?",a:"INNER JOIN — совпавшие строки; LEFT/RIGHT — все строки одной стороны + совпадения; FULL — обе стороны; CROSS — декартово произведение. Для базового уровня достаточно уверенно объяснить INNER и LEFT на примере sale ↔ payment.",must:1,pdf:1},
 {section:"SQL",q:"WHERE vs HAVING?",a:"WHERE фильтрует строки до группировки, HAVING — группы после GROUP BY. Например найти кассы с COUNT(*) > 10 после группировки.",level:"deep"},
 {section:"SQL",q:"Как найти дубликаты по ключу?",a:"SELECT key_col, COUNT(*) FROM t GROUP BY key_col HAVING COUNT(*) > 1; Затем отдельно исследовать строки с найденными ключами.",must:1},
 
@@ -70,7 +70,7 @@ window.CARDS=[
 {section:"Java Core",q:"Сериализация и десериализация — что это?",a:"Преобразование объекта в переносимое представление и обратно. На практике в автотестах чаще JSON ↔ DTO через Jackson/Gson, а не Java native serialization.",pdf:1},
 {section:"Java Core",q:"Что такое reflection?",a:"Runtime API для исследования/вызова типов, полей, методов и аннотаций. Используется фреймворками, но повышает связность с runtime-структурой и может ухудшать безопасность/поддерживаемость.",pdf:1},
 {section:"Java Core",q:"Что такое рекурсия?",a:"Метод вызывает сам себя до base case. Полезна для рекурсивных структур, но при большой глубине может привести к StackOverflowError; часто итерация проще.",pdf:1},
-{section:"Java Core",q:"Какие виды ссылок есть в java.lang.ref?",a:"Strong (обычная ссылка), SoftReference, WeakReference, PhantomReference. На интервью важно понимать: weak может быть собрана GC при отсутствии strong refs; phantom используют для post-mortem cleanup/наблюдения.",level:"deep",pdf:1},
+{section:"Java Core",q:"Какие виды ссылок есть в java.lang.ref?",a:"Strong (обычная ссылка), SoftReference, WeakReference, PhantomReference. Важно понимать: weak может быть собрана GC при отсутствии strong refs; phantom используют для post-mortem cleanup/наблюдения.",level:"deep",pdf:1},
 {section:"Java Core",q:"Что делает Garbage Collector?",a:"Автоматически освобождает heap от объектов, которые больше недостижимы из GC roots. Не гарантирует немедленное освобождение и не заменяет закрытие внешних ресурсов.",must:1,pdf:1},
 {section:"Java Core",q:"Stateless vs Immutable?",a:"Immutable object после создания не меняет наблюдаемое состояние. Stateless component не хранит состояние между вызовами. Объект может быть immutable, но хранить состояние; сервис может быть stateless и при этом не являться value object.",pdf:1},
 {section:"Java Core",q:"Назовите основные коллекции.",a:"Collection → List (ArrayList, LinkedList), Set (HashSet, LinkedHashSet, TreeSet), Queue/Deque (ArrayDeque, PriorityQueue). Map (HashMap, LinkedHashMap, TreeMap, ConcurrentHashMap) — отдельная иерархия, не подтип Collection.",must:1,pdf:1},
@@ -86,7 +86,7 @@ window.CARDS=[
 {section:"Архитектура",q:"Что такое микросервисная архитектура и зачем?",a:"Система из независимо развиваемых/развертываемых сервисов вокруг бизнес-возможностей. Плюсы — автономность и масштабирование; цена — сеть, observability, data consistency, deployment complexity и контрактное тестирование.",pdf:1}
 ];
 window.PRACTICE=[
-{title:"Мини-практика 1 — порядок инициализации полей",src:"Java-шаблон, стр. 4",code:`class SomeClass {
+{title:"Мини-практика 1 — порядок инициализации полей",src:"Учебный Java-шаблон, стр. 4",code:`class SomeClass {
   int getX() { return x; }
   int y = getX();
   int x = 3;
@@ -96,7 +96,7 @@ window.PRACTICE=[
     System.out.println(s.x + "," + s.y);
   }
 }`,options:["3,3","0,0","0,3","3,0","Ошибка компиляции","Ошибка выполнения"],answer:"3,0",why:"Сначала все instance fields получают default 0. Затем явные инициализаторы выполняются сверху вниз: y=getX() видит x=0; после этого x становится 3. Разбор добавлен как учебное пояснение по семантике Java; PDF содержит вопрос и варианты, но не дает отдельного официального ключа."},
-{title:"Мини-практика 2 — метод, похожий на конструктор",src:"Java-шаблон, стр. 4–5",code:`class SomeClass {
+{title:"Мини-практика 2 — метод, похожий на конструктор",src:"Учебный Java-шаблон, стр. 4–5",code:`class SomeClass {
   int a, b;
   void Box(int a, int b) {
     this.a = a;
@@ -109,7 +109,7 @@ class MyClass extends SomeClass {
     System.out.println(a + "," + b);
   }
 }`,options:["Напечатает 1,2","Напечатает 0,0","Не скомпилируется из-за объявления main","Ничего из вышеперечисленного"],answer:"Ничего из вышеперечисленного (код не компилируется)",why:"void Box(...) — обычный метод, не constructor. У SomeClass есть только implicit no-arg constructor, поэтому super(1,2) не находит подходящего конструктора. Формулировка про main из вариантов неверна."},
-{title:"Мини-практика 3 — private метод и полиморфизм",src:"Java-шаблон, стр. 4–5",code:`class SomeClass {
+{title:"Мини-практика 3 — private метод и полиморфизм",src:"Учебный Java-шаблон, стр. 4–5",code:`class SomeClass {
   private void print() { System.out.println(111); }
   void print(SomeClass someClass) { someClass.print(); }
 }
@@ -120,5 +120,22 @@ class TestClass extends SomeClass {
     TestClass t = new TestClass();
     s.print(t);
   }
-}`,options:["111","222","Ошибка компиляции","Ничего из вышеперечисленного"],answer:"111",why:"private method SomeClass.print() не override-ится в TestClass. Внутри SomeClass вызов someClass.print() разрешается к private методу самого SomeClass, поэтому выводится 111."}
+}`,options:["111","222","Ошибка компиляции","Ничего из вышеперечисленного"],answer:"111",why:"private method SomeClass.print() не override-ится в TestClass. Внутри SomeClass вызов someClass.print() разрешается к private методу самого SomeClass, поэтому выводится 111."},
+{title:"Мини-практика 4 — in-place удаление дубликатов",src:"Arrays / two pointers",code:`// Дан отсортированный массив.
+// Удалить дубликаты in-place и вернуть число уникальных элементов k.
+
+static int removeDuplicates(int[] nums) {
+  if (nums.length == 0) return 0;
+
+  int write = 1;
+
+  for (int read = 1; read < nums.length; read++) {
+    if (nums[read] != nums[write - 1]) {
+      nums[write] = nums[read];
+      write++;
+    }
+  }
+
+  return write;
+}`,options:["HashSet и новый массив","Two pointers: read + write","Вложенные циклы","Рекурсия"],answer:"Two pointers: read + write",why:"Для sorted array дубликаты стоят рядом. write — длина уже собранного уникального префикса, read просматривает остальные элементы. На [1,1,2,2,3]: write=1 → пропускаем второй 1 → записываем 2 в индекс 1 → пропускаем второй 2 → записываем 3 в индекс 2 → возвращаем 3. Время O(n), дополнительная память O(1). Если массив не отсортирован, сначала нужно уточнить условия задачи."}
 ];

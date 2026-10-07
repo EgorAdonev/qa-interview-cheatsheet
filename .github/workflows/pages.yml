@@ -27,6 +27,18 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - name: Restore attached mobile testing PDF
+        run: |
+          python3 - <<'PYCODE'
+          from pathlib import Path
+          import hashlib
+          parts = sorted(Path('assets/mobile-pdf').glob('part-*.bin'))
+          assert len(parts) == 49, 'Missing PDF parts'
+          data = b''.join(part.read_bytes() for part in parts)
+          assert hashlib.sha256(data).hexdigest() == 'e48abef265fafd1272e6c13656d1df506f1db74791f3002208fd7db04ce72079', 'PDF integrity check failed'
+          Path('assets/mobile-testing.pdf').write_bytes(data)
+          PYCODE
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:

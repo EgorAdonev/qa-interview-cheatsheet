@@ -11,17 +11,17 @@
 <header class="top">
   <div class="topin">
     <div class="brand">QA <b>Cheat Sheet</b></div>
-    <div class="search"><input id="search" placeholder="Поиск: HashMap, Rest-Assured, Kafka, DNS, smoke…"></div>
-    <button class="btn" id="focusBtn" title="Показывать только самое важное">⚡ 15 минут</button>
+    <div class="search"><input aria-label="Поиск по материалам QA" id="search" placeholder="Поиск: HashMap, Rest-Assured, Kafka, DNS, smoke…"></div>
+    <button class="btn" id="focusBtn" title="Показывать только самое важное">15 минут</button>
     <button class="btn" id="answersBtn">Скрыть ответы</button>
-    <button class="btn primary" id="randomBtn">🎯 Вопрос</button>
+    <button class="btn primary" id="randomBtn">Вопрос</button>
   </div>
 </header>
 
 <div class="layout">
-<aside class="side">
+<aside class="side"><details class="navigation-menu" open><summary>Разделы и прогресс</summary>
   <h4>Разделы</h4>
-  <div class="nav" id="nav"></div>
+  <a class="side-shortcut" href="#professional">Практические разборы</a><a class="side-shortcut" href="#sql-lab">SQL-практикум</a><a class="side-shortcut" href="#resources">Материалы</a><div class="nav" id="nav"></div>
   <div class="box">
     <div style="display:flex;justify-content:space-between;gap:8px"><b>Прогресс</b><span class="count" id="progressText">0 / 0</span></div>
     <div class="meter" style="margin-top:8px"><i id="progressBar"></i></div>
@@ -31,15 +31,15 @@
     <b>Легенда</b>
     <div class="count" style="margin-top:6px">★ Must know — повторить в первую очередь<br>PDF — вопрос из Java-шаблона 16.10.2023<br>Deep — углубленный уровень</div>
   </div>
-</aside>
+</details></aside>
 
 <main>
 <section class="hero" id="overview">
-  <div class="eyebrow">QA • Java • Automation • Systems</div>
+  
   <h1>QA Cheat Sheet</h1>
   <p>Учебная шпаргалка по QA и автоматизации: Java, тест-дизайн, Selenium, JUnit, API, SQL, Git, Kafka, Linux/Windows, сети, desktop-интеграции, ML и LLM.</p>
   <div class="chips">
-    <span class="chip">поиск по 100+ вопросам</span><span class="chip">краткие ответы</span><span class="chip">Java-практика</span><span class="chip">самопроверка</span><span class="chip">localStorage progress</span><span class="chip">без авторизации</span>
+    <span class="chip">поиск по 100+ вопросам</span><span class="chip">39 подробных разборов</span><span class="chip">Java-практика</span><span class="chip">самопроверка</span><span class="chip">прогресс изучения</span><span class="chip">без авторизации</span>
   </div>
   <div class="stackmap" aria-label="Карта стека">
     <div class="node">☕ Java<small>Core / OOP / Streams</small></div>
@@ -52,6 +52,22 @@
   </div>
 </section>
 
+<section class="section study-start" id="professional">
+<div class="sectionhead"><div><h2>Знания → пример → практика</h2><p>Разборы с проверяемыми примерами. Начни с темы или задания.</p></div></div>
+<div class="chapter-links">
+<a href="#sec-практикум-качество"><span aria-hidden="true">◈</span><b>Качество</b><small>Риски, тест-дизайн, формы</small></a>
+<a href="#sec-практикум-java"><span aria-hidden="true">{ }</span><b>Java</b><small>ООП, коллекции, Streams</small></a>
+<a href="#sec-практикум-ui"><span aria-hidden="true">▣</span><b>UI automation</b><small>Локаторы, ожидания, архитектура</small></a>
+<a href="#sec-практикум-api"><span aria-hidden="true">⇄</span><b>API</b><small>HTTP, SOAP, WSDL, проверки</small></a>
+<a href="#sec-практикум-sql"><span aria-hidden="true">▤</span><b>SQL</b><small>Запросы, JOIN, состояние БД</small></a>
+<a href="#sec-практикум-инструменты"><span aria-hidden="true">⌘</span><b>Инструменты</b><small>Git, Linux, Docker, CI/CD</small></a>
+<a href="#sec-практикум-брокеры-и-redis"><span aria-hidden="true">⇉</span><b>Брокеры и Redis</b><small>Доставка, дубли, кэш</small></a>
+<a href="#sec-практикум-mobile-и-devtools"><span aria-hidden="true">▯</span><b>Mobile / DevTools</b><small>Прерывания, сеть, логи</small></a>
+</div>
+<div class="download-panel"><div><b>Мобильное тестирование</b><p>Твой полный учебный материал · 100 страниц · PDF, 27,7 МБ</p></div><div class="download-actions"><a class="btn" href="assets/mobile-testing.pdf" target="_blank" rel="noopener">Открыть PDF</a><a class="btn" href="assets/mobile-testing.pdf" download="Тестирование_мобильных_приложений.pdf">Скачать</a></div></div>
+<div class="learning-shortcuts"><a href="#sql-lab">SQL-практикум</a><a href="#resources">Материалы и тренажёры</a></div>
+</section>
+<p id="searchStatus" role="status" aria-live="polite"></p>
 <section class="section" id="priority">
   <div class="sectionhead"><div><h2>Что повторять в первую очередь</h2><p>Практический приоритет для уверенной базы QA Automation.</p></div></div>
   <div class="priority">
@@ -119,6 +135,40 @@ API / backend ─────→ БД
   </div>
 </section>
 
+<section class="section" id="sql-lab"><div class="sectionhead"><div><h2>SQL-практикум: заказы и клиенты</h2><p>6 задач на одном наборе. Сначала запрос, затем сверка с ожидаемыми строками.</p></div></div><div class="card lesson"><p>Синтаксис — PostgreSQL. Создай отдельную учебную БД. Набор специально содержит клиента без заказов и заказ без клиента.</p><a class="btn" href="assets/sql-practice.sql" download>Скачать исходные данные .sql</a><details class="schema"><summary>Схема и данные</summary><pre class="code">-- PostgreSQL. Учебная схема: выполняйте только в отдельной учебной БД.
+CREATE TABLE qa_customers (id integer PRIMARY KEY, name text NOT NULL);
+CREATE TABLE qa_orders (
+  id integer PRIMARY KEY,
+  customer_id integer REFERENCES qa_customers(id),
+  status text NOT NULL,
+  total numeric(10,2) NOT NULL CHECK (total &gt;= 0)
+);
+INSERT INTO qa_customers VALUES (1, &#x27;Аня&#x27;), (2, &#x27;Борис&#x27;), (3, &#x27;Вера&#x27;);
+INSERT INTO qa_orders VALUES
+  (101, 1, &#x27;paid&#x27;, 1000), (102, 1, &#x27;paid&#x27;, 500),
+  (103, 2, &#x27;new&#x27;, 700), (104, NULL, &#x27;paid&#x27;, 200);
+</pre></details></div><div class="lab-grid"><article class="exercise lab"><h3>1. Фильтр и порядок</h3><p>Оплаченные заказы от 500, по убыванию суммы; при равенстве по id.</p><details><summary>Запрос и ожидаемый результат</summary><pre class="code">SELECT id, total FROM qa_orders
+WHERE status = &#x27;paid&#x27; AND total &gt;= 500
+ORDER BY total DESC, id;</pre><p>101 / 1000.00, 102 / 500.00</p></details></article><article class="exercise lab"><h3>2. GROUP BY и HAVING</h3><p>Клиенты с двумя или более оплаченными заказами.</p><details><summary>Запрос и ожидаемый результат</summary><pre class="code">SELECT customer_id, COUNT(*) AS n, SUM(total) AS total
+FROM qa_orders
+WHERE status = &#x27;paid&#x27; AND customer_id IS NOT NULL
+GROUP BY customer_id
+HAVING COUNT(*) &gt;= 2;</pre><p>Клиент 1: 2 заказа, 1500.00</p></details></article><article class="exercise lab"><h3>3. LEFT JOIN и нулевые значения</h3><p>Все клиенты и число оплаченных заказов, включая ноль.</p><details><summary>Запрос и ожидаемый результат</summary><pre class="code">SELECT c.id, c.name, COUNT(o.id) AS n
+FROM qa_customers c
+LEFT JOIN qa_orders o
+ ON c.id = o.customer_id AND o.status = &#x27;paid&#x27;
+GROUP BY c.id, c.name
+ORDER BY c.id;</pre><p>Аня: 2, Борис: 0, Вера: 0. COUNT(*) даст 1 для отсутствующего совпадения; COUNT(o.id) — 0.</p></details></article><article class="exercise lab"><h3>4. Подзапрос</h3><p>Клиенты, у которых нет ни одного заказа.</p><details><summary>Запрос и ожидаемый результат</summary><pre class="code">SELECT c.id, c.name FROM qa_customers c
+WHERE NOT EXISTS (
+ SELECT 1 FROM qa_orders o WHERE o.customer_id = c.id
+);</pre><p>Вера. NOT IN (SELECT customer_id ...) опасен из-за NULL в заказе 104.</p></details></article><article class="exercise lab"><h3>5. Агрегаты и DISTINCT</h3><p>Сколько заказов, известных клиентов и какова сумма/среднее/min/max?</p><details><summary>Запрос и ожидаемый результат</summary><pre class="code">SELECT COUNT(*) AS orders,
+ COUNT(DISTINCT customer_id) AS customers,
+ SUM(total), AVG(total), MIN(total), MAX(total)
+FROM qa_orders;</pre><p>4 заказа; 2 известных клиента; сумма 2400.00; среднее 600.00; min 200.00; max 1000.00.</p></details></article><article class="exercise lab"><h3>6. RIGHT JOIN и побочный эффект</h3><p>Все заказы с именем клиента, включая заказ без клиента. Затем проверь сумму заказа 103 после оплаты через API.</p><details><summary>Запрос и ожидаемый результат</summary><pre class="code">SELECT o.id, c.name FROM qa_customers c
+RIGHT JOIN qa_orders o ON c.id = o.customer_id
+ORDER BY o.id;
+-- После операции API, если контракт ожидает paid:
+SELECT status, total FROM qa_orders WHERE id = 103;</pre><p>101/Аня, 102/Аня, 103/Борис, 104/NULL. После оплаты ожидай paid и 700.00, одну запись, нужную audit-запись. Сам API здесь не реализован: это упражнение на план проверки.</p></details></article></div></section><section class="section" id="case-lab"><div class="sectionhead"><div><h2>Сквозная практика: проверка заказа</h2><p>Учебный контракт; решения сопоставь с требованиями реального продукта.</p></div></div><article class="card lesson"><p>POST /orders принимает productId и целое quantity от 1 до 99. Пользователь должен быть авторизован. Цена рассчитывается сервером. Успех — 201, id и status=created; неверное количество — 422, без сохранения заказа. Повтор с тем же Idempotency-Key не создаёт дубль.</p><ol><li>Составь тестовую модель: риск, техника, данные, слой, результат.</li><li>Проверь 0/1/2/98/99/100, пустое поле, null, дробь и чужой userId; распределяй по риску, а не по числу шагов.</li><li>Автоматизируй API-варианты; через UI оставь happy path и показ ошибки quantity. Фикстуры создавай независимо.</li><li>Проверь БД по returned id; событие OrderCreated — по correlation/event ID. Дождись результата с deadline, не sleep.</li><li>В CI сначала readiness и API smoke; сохрани HTTP/логи/DOM при падении; классифицируй product/test/environment.</li></ol><details><summary>Критерии хорошего решения</summary><p>Есть связь с контрактом и риском; негативные сценарии проверяют отсутствие побочных эффектов; schema и значения проверяются отдельно; права не сводятся к наличию токена; повтор не создаёт дубля; UI независим; ожидания ограничены; отчёт объясняет причину сбоя. Число тестов не является метрикой полноты.</p></details></article></section><section class="section" id="resources"><div class="sectionhead"><div><h2>Материалы и тренажёры</h2><p>Официальная документация — для точности; тренажёры — для закрепления. Читай под конкретную задачу.</p></div></div><div class="resource-grid"><article class="resource"><span class="resource-group">Тренажёры</span><h3><a href="https://sql-academy.org/ru/trainer" target="_blank" rel="noopener">SQL Academy</a></h3><p>Задачи на фильтры → группировку → JOIN → подзапросы. Решай 3–5 за сессию и проверяй NULL/дубли.</p></article><article class="resource"><span class="resource-group">Тренажёры</span><h3><a href="https://www.w3schools.com/java/java_getstarted.asp" target="_blank" rel="noopener">W3Schools Java</a></h3><p>Вводный учебник: типы, условия, методы, классы. После главы воспроизведи код без подсказки; нюансы сверяй с Java API.</p></article><article class="resource"><span class="resource-group">Тренажёры</span><h3><a href="https://devtools.qa.studio/" target="_blank" rel="noopener">QA Studio DevTools</a></h3><p>Задания по браузеру. Собирай доказательства запроса, ошибки и состояния storage.</p></article><article class="resource"><span class="resource-group">Java и UI</span><h3><a href="https://dev.java/learn/" target="_blank" rel="noopener">Dev.java</a></h3><p>Официальный маршрут Java: язык → OOP → exceptions → Collections/Streams.</p></article><article class="resource"><span class="resource-group">Java и UI</span><h3><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/Stream.html" target="_blank" rel="noopener">Java API: Stream</a></h3><p>Контракты операций, ленивость, одноразовость и side effects. Примеры сайта рассчитаны на Java 17+.</p></article><article class="resource"><span class="resource-group">Java и UI</span><h3><a href="https://www.selenium.dev/documentation/webdriver/waits/" target="_blank" rel="noopener">Selenium: Waits</a></h3><p>Различия implicit/explicit waits; воспроизведи race condition и замени sleep условием.</p></article><article class="resource"><span class="resource-group">Java и UI</span><h3><a href="https://www.selenium.dev/documentation/test_practices/encouraged/page_object_models/" target="_blank" rel="noopener">Selenium: Page Object</a></h3><p>Архитектура страниц и компонентов. Сопоставь со своим тестом, а не копируй BasePage целиком.</p></article><article class="resource"><span class="resource-group">Java и UI</span><h3><a href="https://selenide.org/documentation.html" target="_blank" rel="noopener">Selenide</a></h3><p>Условия, коллекции и диагностика. Сравни одну проверку на Selenium и Selenide.</p></article><article class="resource"><span class="resource-group">API и данные</span><h3><a href="https://www.rfc-editor.org/rfc/rfc9110.html" target="_blank" rel="noopener">RFC 9110: HTTP</a></h3><p>Первичный стандарт семантики методов, статусов и headers. Используй как справочник.</p></article><article class="resource"><span class="resource-group">API и данные</span><h3><a href="https://www.w3.org/TR/2001/NOTE-wsdl-20010315" target="_blank" rel="noopener">W3C: WSDL 1.1</a></h3><p>В классических SOAP-сервисах узнай types/message/portType/binding/service.</p></article><article class="resource"><span class="resource-group">API и данные</span><h3><a href="https://www.w3.org/TR/wsdl20-primer/" target="_blank" rel="noopener">W3C: WSDL 2.0 Primer</a></h3><p>Пойми interface/binding/service/endpoint и отличия от 1.1.</p></article><article class="resource"><span class="resource-group">API и данные</span><h3><a href="https://www.postgresql.org/docs/current/queries-table-expressions.html" target="_blank" rel="noopener">PostgreSQL: SELECT / JOIN</a></h3><p>Официальные объяснения запросов, outer joins, WHERE/GROUP BY/HAVING.</p></article><article class="resource"><span class="resource-group">Брокеры и инструменты</span><h3><a href="https://www.rabbitmq.com/docs/confirms" target="_blank" rel="noopener">RabbitMQ: acknowledgements</a></h3><p>Publisher confirms и consumer ack подтверждают разные этапы.</p></article><article class="resource"><span class="resource-group">Брокеры и инструменты</span><h3><a href="https://redis.io/docs/latest/develop/pubsub/" target="_blank" rel="noopener">Redis: Pub/Sub</a></h3><p>Проверь семантику доставки, reconnect и ограничения Pub/Sub.</p></article><article class="resource"><span class="resource-group">Брокеры и инструменты</span><h3><a href="https://kafka.apache.org/documentation/" target="_blank" rel="noopener">Apache Kafka</a></h3><p>Topics, partitions, consumer groups, offsets. Выбери документацию версии своего стенда.</p></article><article class="resource"><span class="resource-group">Брокеры и инструменты</span><h3><a href="https://git-scm.com/docs" target="_blank" rel="noopener">Git reference</a></h3><p>Справочник status/diff/switch/merge/rebase/revert.</p></article><article class="resource"><span class="resource-group">Брокеры и инструменты</span><h3><a href="https://docs.docker.com/get-started/" target="_blank" rel="noopener">Docker: Get started</a></h3><p>Образ, контейнер, порты, volume и Compose.</p></article><article class="resource"><span class="resource-group">Качество и Mobile</span><h3><a href="https://www.istqb.org/certifications/certified-tester-foundation-level" target="_blank" rel="noopener">ISTQB: CTFL</a></h3><p>Официальная программа по основам и техникам тест-дизайна. Терминология полезна, сертификат для чтения не нужен.</p></article><article class="resource"><span class="resource-group">Качество и Mobile</span><h3><a href="https://developer.android.com/training/testing" target="_blank" rel="noopener">Android: testing</a></h3><p>Текущие рекомендации по тестированию и слоям Android-приложения.</p></article><article class="resource"><span class="resource-group">Качество и Mobile</span><h3><a href="https://developer.android.com/tools/adb" target="_blank" rel="noopener">Android: ADB</a></h3><p>Команды подключения, установки, shell и диагностики.</p></article></div></section>
 <section class="section" id="source-note">
   <div class="sectionhead"><div><h2>О материалах</h2></div></div>
   <div class="card">
@@ -133,6 +183,9 @@ API / backend ─────→ БД
 
 <script src="data-core.js"></script>
 <script src="data-extra.js"></script>
+<script src="data-professional.js"></script>
+<script src="vendor/gsap.min.js"></script>
+<script src="learning.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

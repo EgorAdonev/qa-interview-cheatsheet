@@ -6,6 +6,7 @@
 <meta name="description" content="Интерактивная шпаргалка по QA, Java, автоматизации и системной инженерии">
 <title>QA Cheat Sheet — Java / Automation / Systems</title>
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="algorithms.css">
 </head>
 <body>
 <header class="top">
@@ -21,7 +22,7 @@
 <div class="layout">
 <aside class="side"><details class="navigation-menu" open><summary>Разделы и прогресс</summary>
   <h4>Разделы</h4>
-  <a class="side-shortcut" href="#professional">Практические разборы</a><a class="side-shortcut" href="#sql-lab">SQL-практикум</a><a class="side-shortcut" href="#resources">Материалы</a><div class="nav" id="nav"></div>
+  <a class="side-shortcut" href="#algorithms-roadmap">Алгоритмы: план на 6 недель</a><a class="side-shortcut" href="#professional">Практические разборы</a><a class="side-shortcut" href="#sql-lab">SQL-практикум</a><a class="side-shortcut" href="#resources">Материалы</a><div class="nav" id="nav"></div>
   <div class="box">
     <div style="display:flex;justify-content:space-between;gap:8px"><b>Прогресс</b><span class="count" id="progressText">0 / 0</span></div>
     <div class="meter" style="margin-top:8px"><i id="progressBar"></i></div>
@@ -39,7 +40,7 @@
   <h1>QA Cheat Sheet</h1>
   <p>Учебная шпаргалка по QA и автоматизации: Java, тест-дизайн, Selenium, JUnit, API, SQL, Git, Kafka, Linux/Windows, сети, desktop-интеграции, ML и LLM.</p>
   <div class="chips">
-    <span class="chip">поиск по 100+ вопросам</span><span class="chip">39 подробных разборов</span><span class="chip">Java-практика</span><span class="chip">самопроверка</span><span class="chip">прогресс изучения</span><span class="chip">без авторизации</span>
+    <span class="chip">поиск по 100+ вопросам</span><span class="chip">39 подробных разборов</span><span class="chip">Java-практика</span><span class="chip">Алгоритмы · USACO / CSES / AtCoder</span><span class="chip">самопроверка</span><span class="chip">прогресс изучения</span><span class="chip">без авторизации</span>
   </div>
   <div class="stackmap" aria-label="Карта стека">
     <div class="node">☕ Java<small>Core / OOP / Streams</small></div>
@@ -55,6 +56,7 @@
 <section class="section study-start" id="professional">
 <div class="sectionhead"><div><h2>Знания → пример → практика</h2><p>Разборы с проверяемыми примерами. Начни с темы или задания.</p></div></div>
 <div class="chapter-links">
+<a href="#algorithms-roadmap"><span aria-hidden="true">⌘</span><b>Алгоритмы</b><small>USACO, CSES, AtCoder · 6 недель</small></a>
 <a href="#sec-практикум-качество"><span aria-hidden="true">◈</span><b>Качество</b><small>Риски, тест-дизайн, формы</small></a>
 <a href="#sec-практикум-java"><span aria-hidden="true">{ }</span><b>Java</b><small>ООП, коллекции, Streams</small></a>
 <a href="#sec-практикум-ui"><span aria-hidden="true">▣</span><b>UI automation</b><small>Локаторы, ожидания, архитектура</small></a>
@@ -101,6 +103,44 @@ API / backend ─────→ БД
 данные • таймаут • retry • дубль • offline • recovery • логи</pre>
     <div class="callout warn">Типовой сильный ответ на troubleshooting-вопрос: сначала зафиксировать симптом и окружение, затем локализовать слой, воспроизвести минимальный кейс, собрать доказательства и только после этого формулировать гипотезу о причине.</div>
   </div>
+</section>
+
+
+<section class="section" id="algorithms-roadmap">
+  <div class="sectionhead"><div>
+    <h2>Алгоритмы и структуры данных · Java</h2>
+    <p>Маршрут для уверенной Java QA Automation: сначала паттерны, затем задачи по теме, после — случайная практика без подсказок.</p>
+  </div></div>
+  <div class="algo-intro">
+    <article class="algo-panel">
+      <h3>Как заниматься без перегруза</h3>
+      <ol>
+        <li><b>USACO Guide</b> — изучи один паттерн и попробуй реализовать его на Java.</li>
+        <li><b>CSES</b> — реши 2–4 задачи на тот же паттерн, затем объясни сложность.</li>
+        <li><b>AtCoder Problems</b> — выбери случайную задачу своего уровня, не открывая теги.</li>
+        <li><b>Разбор ошибок</b> — запиши баг, крайний случай и альтернативный подход.</li>
+      </ol>
+      <p>Ориентир: 1–2 часа в будни, немного больше в выходные. Нет цели проходить USACO Platinum или закрывать весь CSES.</p>
+      <div class="algo-link-cards"><a href="#sec-алгоритмы-и-структуры-данных">Перейти к 19 подробным урокам ↓</a><a href="#practice">Java mini-practice ↓</a></div>
+    </article>
+    <article class="algo-panel">
+      <h3>Три ресурса — три задачи</h3>
+      <div class="algo-source-list">
+        <a href="https://usaco.guide/" target="_blank" rel="noopener noreferrer"><b>USACO Guide ↗</b><br><small>Теория, инварианты, Java-реализации</small></a>
+        <a href="https://cses.fi/problemset/" target="_blank" rel="noopener noreferrer"><b>CSES Problem Set ↗</b><br><small>Практика по понятной теме</small></a>
+        <a href="https://kenkoooo.com/atcoder/" target="_blank" rel="noopener noreferrer"><b>AtCoder Problems ↗</b><br><small>Случайные задачи, difficulty и контесты</small></a>
+      </div>
+      <p class="algo-notes">Для AtCoder начни примерно с difficulty 200–400. Повышай только тогда, когда задачи регулярно решаются самостоятельно.</p>
+    </article>
+  </div>
+  <div class="algo-priority" aria-label="Приоритет изучения тем">
+    <article><h3>★ Сначала освоить</h3><p>Big O, массивы, строки, HashMap/HashSet, sorting, two pointers, sliding window, prefix sum, binary search, stack/queue, linked list, DFS/BFS.</p></article>
+    <article><h3>Затем добавить</h3><p>PriorityQueue, greedy, recursion/backtracking, binary trees, topological sort, базовую DP. DSU и Dijkstra — ознакомительно и с простой реализацией.</p></article>
+    <article><h3>Пока пропустить</h3><p>Segment/Fenwick Tree, digit/bitmask/advanced DP, сложную геометрию, специализированную теорию чисел и продвинутые алгоритмы графов.</p></article>
+  </div>
+  <div class="sectionhead"><div><h2>План на 6 недель</h2><p>Раскрывай неделю, переходи к задачам по ссылке и отмечай выполненное. Прогресс сохраняется локально.</p></div></div>
+  <div id="algorithmRoadmap"><p>Подготавливаем список задач…</p></div>
+  <p class="algo-notes">Самопроверка: перед кодом опиши ограничения и brute force, затем выбери алгоритм; после решения проверь edge cases и назови time/space complexity. На AtCoder решай без тегов.</p>
 </section>
 
 <div id="sections"></div>
@@ -184,8 +224,10 @@ SELECT status, total FROM qa_orders WHERE id = 103;</pre><p>101/Аня, 102/Ан
 <script src="data-core.js"></script>
 <script src="data-extra.js"></script>
 <script src="data-professional.js"></script>
+<script src="data-algorithms.js"></script>
 <script src="vendor/gsap.min.js"></script>
 <script src="learning.js"></script>
+<script src="algorithms-roadmap.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
